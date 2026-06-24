@@ -11,6 +11,7 @@ def setup_password():
             print("Password must be exactly 6 characters long.")
             continue
 
+        #if not all(string.digits for ch in password):
         if not all(ch in string.ascii_lowercase + string.digits for ch in password):
             print("Only lowercase letters and numbers are allowed.")
             continue
@@ -28,7 +29,7 @@ def crack_password(target_password):
         guess = ''.join(guess_tuple)
         attempts += 1
 
-        print(f"Trying: {guess}")
+        # print(f"Trying: {guess}")
 
         if guess == target_password:
             end_time = time.time()

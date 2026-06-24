@@ -218,17 +218,17 @@ class PasswordCrackerGUI:
                     self.attempts_label.config(text=f"Attempts: {attempts}")
                     self.time_label.config(text=f"Time: {elapsed_time:.4f} seconds")
 
-                    # Do not print every guess. This text box is slow.
-                    self.output_box.insert(
-                        tk.END,
-                        f"Trying: {guess}\n"
-                    )
-                    self.output_box.see(tk.END)
+                    # # Do not print every guess. This text box is slow.
                     # self.output_box.insert(
                     #     tk.END,
-                    #     f"Trying: {guess}    Attempts: {attempts}\n"
+                    #     f"Trying: {guess}\n"
                     # )
                     # self.output_box.see(tk.END)
+                    # # self.output_box.insert(
+                    # #     tk.END,
+                    # #     f"Trying: {guess}    Attempts: {attempts}\n"
+                    # # )
+                    # # self.output_box.see(tk.END)
 
                 elif message["type"] == "found":
                     self.running = False
