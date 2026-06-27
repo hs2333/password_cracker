@@ -2,13 +2,15 @@ import itertools
 import string
 import time
 
+PASSWORD_LENGTH = 6
+
 def setup_password():
     while True:
-        password = input("Set a 6-character password (lowercase letters and/or numbers) ")
+        password = input("Set a {PASSWORD_LENGTH}-character password (lowercase letters and/or numbers) ")
         password = password.lower()
 
-        if len(password) != 6:
-            print("Password must be exactly 6 characters long.")
+        if len(password) != PASSWORD_LENGTH:
+            print("Password must be exactly {PASSWORD_LENGTH} characters long.")
             continue
 
         #if not all(string.digits for ch in password):
@@ -25,7 +27,7 @@ def crack_password(target_password):
 
     start_time = time.time()
 
-    for guess_tuple in itertools.product(characters, repeat=6):
+    for guess_tuple in itertools.product(characters, repeat=PASSWORD_LENGTH):
         guess = ''.join(guess_tuple)
         attempts += 1
 
